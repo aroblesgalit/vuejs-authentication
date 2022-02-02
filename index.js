@@ -1,26 +1,26 @@
 const express = require('express')
-const mongodb = require('mongodb')
+const mongoose = require('mongoose')
 require('dotenv').config()
-
-// Connect to database
-async function loadDatabase () {
-  const client = await mongodb.MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true
-  })
-  return client.db('auth')
-}
+const cors = require('cors')
 
 // Initialize app with express
 app = express()
 
-// Route
-app.get('/', async (req, res) => {
-  const data = await loadDatabase()
-  res.send(await data.find({}).toArray())
+// Middle ware
+app.use(cors())
+
+const port = process.env.PORT || 5000
+
+// Connect to database
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 
-// Port
-const port = process.envPORT || 5000
+const connection = mongoose.connection
+connection.once('open', () => {
+  console.log('MongoDB database connection established successfully.')
+})
 
 // Start server
 app.listen(port, () => console.log(`Server started on port ${port}`))
