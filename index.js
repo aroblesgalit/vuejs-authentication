@@ -12,6 +12,9 @@ app = express()
 // Middle ware
 app.use(cors())
 
+const users = require('./routes/api/users')
+app.use('/api/users', users)
+
 const port = process.env.PORT || 5000
 
 // Connect to database
