@@ -2,9 +2,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const cors = require('cors')
+const User = require('./model/user')
 
 // Initialize app with express
 app = express()
+
+app.use(express.json())
 
 // Middle ware
 app.use(cors())
@@ -20,6 +23,20 @@ mongoose.connect(process.env.MONGODB_URI, {
 const connection = mongoose.connection
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully.')
+})
+
+app.post('/api/user', async (req, res) => {
+  try {
+    console.log('req.body: ', req.body)
+    const newUser = new User({
+      username: req.body.username,
+      password: req.body.password
+    })
+    await User.create(newUser)
+    res.send('User added.')
+  } catch (err) {
+    console.log('Error: ', err)
+  }
 })
 
 // Start server
