@@ -37,9 +37,9 @@ const userSchema = new Schema({
 //   }
 // })
 
-userSchema.methods.validatePassword = async function validatePassword (data) {
-  return bcrypt.compare(data, this.password)
-}
+// userSchema.methods.validatePassword = async function validatePassword (data) {
+//   return bcrypt.compare(data, this.password)
+// }
 
 const User = mongoose.model('User', userSchema)
 
