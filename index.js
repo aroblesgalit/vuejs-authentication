@@ -25,6 +25,13 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully.')
 })
 
+app.get('/api/users', async (req, res) => {
+  await User.find({}, (err, result) => {
+    console.log('Users from db: ', result)
+    res.send(result)
+  })
+})
+
 app.post('/api/user', async (req, res) => {
   try {
     console.log('req.body: ', req.body)
