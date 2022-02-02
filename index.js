@@ -7,7 +7,7 @@ const cors = require('cors')
 // Initialize app with express
 app = express()
 
-// app.use(express.json())
+app.use(express.json())
 
 // Middle ware
 app.use(cors())
