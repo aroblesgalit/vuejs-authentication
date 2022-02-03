@@ -55,6 +55,14 @@ router.post('/login', async (req, res) => {
   }
 })
 
-router.get('/', async (req, res) => {})
+router.get('/', async (req, res) => {
+  try {
+    const cookie = await req.cookies['jwt']
+
+    res.send(cookie)
+  } catch (err) {
+    console.log('Error: ', err)
+  }
+})
 
 module.exports = router
