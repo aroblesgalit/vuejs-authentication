@@ -71,8 +71,16 @@ router.get('/', async (req, res) => {
 
     res.send(data)
   } catch (err) {
-    console.log('Error: ', err)
+    return res.status(401).send({ message: 'unauthenticated' })
   }
+})
+
+// Log out user
+router.post('/logout', (req, res) => {
+  res.cookie('jwt', '', {
+    maxAge: 0
+  })
+  res.send({ message: 'success' })
 })
 
 module.exports = router
