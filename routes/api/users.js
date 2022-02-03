@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const User = require('../../model/user')
 
 // Register a user
@@ -37,6 +38,9 @@ router.post('/login', async (req, res) => {
         message: 'Invalid credentials'
       })
     }
+
+    // Generate a jwt token with user's ID
+    const token = jwt.sign({ _id: user._id }, 'secret')
 
     res.send(user)
   } catch (err) {

@@ -29,31 +29,5 @@ mongoose.connect(
   }
 )
 
-// const connection = mongoose.connection
-// connection.once('open', () => {
-//   console.log('MongoDB database connection established successfully.')
-// })
-
-// app.get('/api/users', async (req, res) => {
-//   await User.find({}, (err, result) => {
-//     console.log('Users from db: ', result)
-//     res.send(result)
-//   })
-// })
-
-// app.post('/api/user', async (req, res) => {
-//   try {
-//     console.log('req.body: ', req.body)
-//     const newUser = new User({
-//       username: req.body.username,
-//       password: req.body.password
-//     })
-//     await User.create(newUser)
-//     res.send('User added.')
-//   } catch (err) {
-//     console.log('Error: ', err)
-//   }
-// })
-
 // Start server
 app.listen(port, () => console.log(`Server started on port ${port}`))
