@@ -41,8 +41,15 @@ router.post('/login', async (req, res) => {
 
     // Generate a jwt token with user's ID
     const token = jwt.sign({ _id: user._id }, 'secret')
+    // Store token in http only cookie
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
+    })
 
-    res.send(user)
+    res.send({
+      message: 'success'
+    })
   } catch (err) {
     console.log('Error: ', err)
   }
