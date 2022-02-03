@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 // Connect to database
 mongoose.connect(
@@ -18,6 +19,7 @@ mongoose.connect(
 // Initialize app with express
 app = express()
 app.use(express.json())
+app.use(cookieParser())
 
 // Middle ware
 app.use(cors({ credentials: true, origin: ['http://localhost:8080'] }))
