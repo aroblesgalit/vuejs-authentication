@@ -20,7 +20,7 @@ app = express()
 app.use(express.json())
 
 // Middle ware
-app.use(cors({ credentials: true }))
+app.use(cors({ credentials: true, origin: ['http://localhost:8080'] }))
 
 const users = require('./routes/api/users')
 app.use('/api/users', users)
