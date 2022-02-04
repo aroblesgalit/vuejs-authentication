@@ -2,17 +2,16 @@
   <div>
     <Nav />
     <main class="form-signin">
-      <Login />
+      <router-view />
     </main>
   </div>
 </template>
 
 <script>
 import Nav from './components/Nav.vue'
-import Login from './views/Login.vue'
 
 export default {
-  components: { Nav, Login }
+  components: { Nav }
 }
 </script>
 
