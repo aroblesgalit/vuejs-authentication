@@ -4,9 +4,9 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 
 const routes = [
-  { path: '', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register }
+  { path: '', name: 'Home', component: Home },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/register', name: 'Register', component: Register }
 ]
 
 const router = createRouter({

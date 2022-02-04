@@ -30,6 +30,8 @@
 
 <script>
 import axios from 'axios'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 export default {
   name: 'Register',
@@ -42,14 +44,19 @@ export default {
   },
   methods: {
     async formSubmit () {
-      console.log(this.username, this.password, this.confirm)
-      if (this.password !== this.confirm) {
-        return alert('Please confirm password matches.')
+      try {
+        if (this.password !== this.confirm) {
+          return alert('Please confirm password matches.')
+        }
+        await axios.post('http://localhost:5000/api/users/register', {
+          username: this.username,
+          password: this.password
+        })
+
+        await router.push({ name: 'Login' })
+      } catch (err) {
+        console.log(err)
       }
-      await axios.post('http://localhost:5000/api/users/register', {
-        username: this.username,
-        password: this.password
-      })
     }
   }
 }
