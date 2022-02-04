@@ -1,30 +1,72 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <main class="form-signin">
+    <form>
+      <img
+        class="mb-4"
+        src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+        alt=""
+        width="72"
+        height="57"
+      />
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">
+        Sign in
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    </form>
+  </main>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
 }
 
-#nav {
-  padding: 30px;
+.form-signin .checkbox {
+  font-weight: 400;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.form-signin .form-floating:focus-within {
+  z-index: 2;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.form-signin input[type='email'] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type='password'] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 </style>
