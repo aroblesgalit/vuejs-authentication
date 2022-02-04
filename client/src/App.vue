@@ -1,19 +1,36 @@
 <template>
-  <main class="form-signin">
-    <form>
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <input type="email" class="form-control" placeholder="Email" required />
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Password"
-        required
-      />
-      <button class="w-100 btn btn-lg btn-primary" type="submit">
-        Sign in
-      </button>
-    </form>
-  </main>
+  <div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <div>
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="form-signin">
+      <form>
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <input type="email" class="form-control" placeholder="Email" required />
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <button class="w-100 btn btn-lg btn-primary" type="submit">
+          Sign in
+        </button>
+      </form>
+    </main>
+  </div>
 </template>
 
 <style scoped>
