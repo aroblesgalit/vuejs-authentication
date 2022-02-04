@@ -1,7 +1,7 @@
 <template>
   <form>
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <input type="email" class="form-control" placeholder="Email" required />
+    <input type="text" class="form-control" placeholder="Username" required />
     <input
       type="password"
       class="form-control"
