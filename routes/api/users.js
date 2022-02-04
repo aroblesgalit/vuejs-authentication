@@ -5,7 +5,7 @@ const User = require('../../model/user')
 require('dotenv').config()
 
 // Register a user
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
