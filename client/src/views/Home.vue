@@ -1,5 +1,8 @@
 <template>
-  <h1>Home</h1>
+  <div>
+    <h1>Home</h1>
+    <h3>Hi {{ user.username }}</h3>
+  </div>
 </template>
 
 <script>
@@ -9,14 +12,16 @@ export default {
   name: 'Home',
   data () {
     return {
+      user: {},
       error: ''
     }
   },
   async created () {
     try {
-      await axios.get('http://localhost:5000/api/users', {
+      const response = await axios.get('http://localhost:5000/api/users', {
         withCredentials: true
       })
+      this.user = await response.data
     } catch (err) {
       this.error = err.message
     }
