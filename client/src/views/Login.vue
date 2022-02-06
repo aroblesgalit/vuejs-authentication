@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="formSubmit">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <input
       v-model="username"
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Login',
   data () {
