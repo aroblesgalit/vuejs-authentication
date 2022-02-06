@@ -30,8 +30,6 @@
 
 <script>
 import axios from 'axios'
-import { useRouter } from 'vue-router'
-const router = useRouter()
 
 export default {
   name: 'Register',
@@ -53,7 +51,7 @@ export default {
           password: this.password
         })
 
-        await router.push({ name: 'Login' })
+        await this.$router.push({ name: 'Login' })
       } catch (err) {
         console.log(err)
       }
