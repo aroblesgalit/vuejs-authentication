@@ -5,10 +5,14 @@
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/login">Login</router-link>
+            <router-link class="nav-link" :to="{ name: 'Login' }"
+              >Login</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/register">Register</router-link>
+            <router-link class="nav-link" :to="{ name: 'Register' }"
+              >Register</router-link
+            >
           </li>
         </ul>
       </div>
