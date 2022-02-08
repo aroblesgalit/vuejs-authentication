@@ -28,7 +28,7 @@ export default {
 
       await store.dispatch('setAuth', true)
     } catch (err) {
-      store.dispatch('setAuth', false)
+      await store.dispatch('setAuth', false)
     }
   }
 }
