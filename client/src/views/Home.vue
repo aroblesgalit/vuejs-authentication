@@ -7,6 +7,9 @@
 
 <script>
 import axios from 'axios'
+import { useStore } from 'vuex'
+
+const store = useStore()
 
 export default {
   name: 'Home',
@@ -22,8 +25,10 @@ export default {
         withCredentials: true
       })
       this.user = await response.data
+
+      await store.dispatch('setAuth', true)
     } catch (err) {
-      this.error = err.message
+      store.dispatch('setAuth', false)
     }
   }
 }
