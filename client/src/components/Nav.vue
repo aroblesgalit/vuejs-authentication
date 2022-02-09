@@ -17,9 +17,7 @@
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-md-0" v-else>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'Login' }"
-              >Logout</router-link
-            >
+            <a class="nav-link" href="#" @click="logout">Logout</a>
           </li>
         </ul>
       </div>
@@ -28,15 +26,31 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { useStore } from 'vuex'
 
-const store = useStore()
+// const store = useStore()
 
 export default {
   name: 'Nav',
-  data () {
-    return {
-      auth: store.state.authenticated
+  methods: {
+    async logout () {
+      try {
+        await axios.post('http://localhost:5000/api/users/logout', {
+          withCredentials: true,
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' }
+        })
+        await this.$router.push({ name: 'Login' })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
+  computed: {
+    auth () {
+      const store = useStore()
+      return store.state.authenticated
     }
   }
 }

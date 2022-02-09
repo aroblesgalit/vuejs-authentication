@@ -41,7 +41,11 @@ export default {
             username: this.username,
             password: this.password
           },
-          { withCredentials: true }
+          {
+            withCredentials: true,
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' }
+          }
         )
         await this.$router.push({ name: 'Home' })
       } catch (err) {

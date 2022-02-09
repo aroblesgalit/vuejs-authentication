@@ -7,9 +7,9 @@
 
 <script>
 import axios from 'axios'
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
 
-const store = useStore()
+// const store = useStore()
 
 export default {
   name: 'Home',
@@ -22,13 +22,14 @@ export default {
   async created () {
     try {
       const response = await axios.get('http://localhost:5000/api/users', {
-        withCredentials: true
+        withCredentials: true,
+        credentials: 'include'
       })
       this.user = await response.data
 
-      await store.dispatch('setAuth', true)
+      await this.$store.dispatch('setAuth', true)
     } catch (err) {
-      await store.dispatch('setAuth', false)
+      await this.$store.dispatch('setAuth', false)
     }
   }
 }
