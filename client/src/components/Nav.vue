@@ -29,8 +29,6 @@
 import axios from 'axios'
 import { useStore } from 'vuex'
 
-// const store = useStore()
-
 export default {
   name: 'Nav',
   methods: {
