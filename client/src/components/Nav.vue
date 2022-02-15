@@ -39,6 +39,8 @@ export default {
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' }
         })
+        // Invalidate cookie and set cookie to expire
+
         await this.$router.push({ name: 'Login' })
       } catch (err) {
         console.log(err)
